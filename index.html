@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo 待办清单</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1>📝 我的待办清单</h1>
+            <p class="subtitle" id="dateDisplay"></p>
+        </header>
+
+        <section class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number" id="totalCount">0</span>
+                <span class="stat-label">总计</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="activeCount">0</span>
+                <span class="stat-label">未完成</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="completedCount">0</span>
+                <span class="stat-label">已完成</span>
+            </div>
+        </section>
+
+        <form class="todo-form" id="todoForm">
+            <input
+                type="text"
+                id="todoInput"
+                class="todo-input"
+                placeholder="今天有什么计划？"
+                maxlength="100"
+                autocomplete="off"
+                required
+            >
+            <button type="submit" class="add-btn" aria-label="添加任务">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+                添加
+            </button>
+        </form>
+
+        <nav class="filter-bar">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="active">未完成</button>
+            <button class="filter-btn" data-filter="completed">已完成</button>
+            <button class="clear-btn" id="clearCompleted">清除已完成</button>
+        </nav>
+
+        <ul class="todo-list" id="todoList"></ul>
+
+        <div class="empty-state" id="emptyState">
+            <div class="empty-icon">✨</div>
+            <p class="empty-text">还没有任务</p>
+            <p class="empty-hint">添加一条任务开始你的高效一天吧！</p>
+        </div>
+
+        <footer class="app-footer">
+            <p>双击任务可编辑 · 数据保存在本地浏览器中</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
